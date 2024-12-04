@@ -1,13 +1,13 @@
 import CurrentPage from "./CurrentPage/CurrentPage";
-import Date from "./Date/Date";
 import styles from "./Header.module.css";
 import HomeLink from "./HomeLink/HomeLink";
 import SignOut from "./SignOut/SignOut";
+import Today from "./Today/Today";
 
 const Header = () => {
   return (
     <div className={styles.wrapper}>
-      <Date />
+      <Today />
       <CurrentPage />
       <HomeLink />
       <SignOut />
