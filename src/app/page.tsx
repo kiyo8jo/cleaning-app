@@ -1,3 +1,10 @@
+import { signOut } from "./login/actions";
+
 export default function Home() {
-  return <div>初期状態</div>;
+  return (
+    <>
+      <div>main</div>
+      <button onClick={signOut}>signout</button>
+    </>
+  );
 }
