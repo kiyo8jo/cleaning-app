@@ -1,0 +1,22 @@
+.wrapper {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  user-select: none;
+}
+
+.floor {
+  background-color: #b9e8fa;
+  padding: 5px 20px;
+  border-radius: 10px;
+  font-size: large;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.floor:hover {
+  scale: 1.1;
+}
