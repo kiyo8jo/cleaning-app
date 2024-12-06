@@ -1,0 +1,64 @@
+/* aside_wrapper */
+
+.aside_wrapper {
+  width: 30%;
+  height: 80%;
+  background-color: rgb(202, 202, 202);
+  padding: 20px;
+  margin-right: 10px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.aside_wrapper > .edit_title {
+  margin-bottom: 20px;
+}
+/* edit_item_container */
+
+.edit_item_container {
+  margin-bottom: 50px;
+}
+
+/* edit_item */
+
+.edit_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.edit_item > label {
+  width: 50%;
+}
+
+.edit_item > select {
+  width: 50%;
+}
+.edit_item > textarea {
+  height: 150px;
+  width: 50%;
+  resize: none;
+}
+
+/* button_container */
+
+.button_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10px;
+}
+
+.button_container > button {
+  width: 100px;
+  transition: all 0.2s;
+  border-radius: 10px;
+  border: none;
+  background-color: #f0dbad;
+  cursor: pointer;
+}
+
+.button_container > button:hover {
+  scale: 1.1;
+}
