@@ -1,11 +1,12 @@
 import FloorChangeButton from "@/app/components/Main/common/FloorChangeButton/FloorChangeButton";
 import styles from "./page.module.css";
+import HouseContents from "@/app/components/Main/house/HouseContents/HouseContents";
 
 const housePage = () => {
   return (
     <div className={styles.wrapper}>
       <FloorChangeButton />
-      <div className={styles.content_wrapper}>housePage</div>
+      <HouseContents />
     </div>
   );
 };
