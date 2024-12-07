@@ -1,6 +1,10 @@
 import styles from "./CleaningModal.module.css";
 
-const CleaningModal = () => {
+type Props = {
+  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const CleaningModal = ({ setIsModalOpen }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal_wrapper}>
@@ -25,7 +29,7 @@ const CleaningModal = () => {
             </div>
           </div>
           <div className={styles.button_container}>
-            <button>送信</button>
+            <button onClick={() => setIsModalOpen(false)}>送信</button>
             <button>キャンセル</button>
           </div>
         </form>

@@ -1,5 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import RoomCard from "../../common/RoomCard/RoomCard";
-import CleaningModal from "./CleaningModal/CleaningModal";
+import CleaningModal from "../CleaningModal/CleaningModal";
 import styles from "./HouseContents.module.css";
 
 interface Room {
@@ -56,14 +59,21 @@ const HouseContents = () => {
       kidInf: 0,
     },
   ];
+
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+
   return (
     <div className={styles.wrapper}>
       <main className={styles.main_wrapper}>
         {testRooms.map((room) => (
-          <RoomCard room={room} key={room.roomNumber} />
+          <RoomCard
+            room={room}
+            key={room.roomNumber}
+            setIsModalOpen={setIsModalOpen}
+          />
         ))}
       </main>
-      <CleaningModal />
+      {isModalOpen && <CleaningModal setIsModalOpen={setIsModalOpen} />}
     </div>
   );
 };
