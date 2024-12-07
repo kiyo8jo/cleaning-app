@@ -12,18 +12,13 @@ interface Room {
   kidInf: number;
 }
 
-type Props = {
+interface Props {
   room: Room;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-};
+}
 
-const RoomCard = ({ room, setIsModalOpen }: Props) => {
+const RoomCard = ({ room }: Props) => {
   return (
-    <div
-      className={styles.room_card}
-      key={room.roomNumber}
-      onClick={() => setIsModalOpen(true)}
-    >
+    <div className={styles.room_card} key={room.roomNumber}>
       <div className={styles.room_card_header}>
         <div>{`${room.roomNumber}(${room.roomType})`}</div>
         <div>{room.cleaningType}</div>

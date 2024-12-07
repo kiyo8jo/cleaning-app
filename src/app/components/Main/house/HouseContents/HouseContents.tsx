@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import RoomCard from "../../common/RoomCard/RoomCard";
 import CleaningModal from "../CleaningModal/CleaningModal";
 import styles from "./HouseContents.module.css";
+import HouseRoomCard from "../HouseRoomCard/HouseRoomCard";
 
 interface Room {
   roomNumber: number;
@@ -66,7 +66,7 @@ const HouseContents = () => {
     <div className={styles.wrapper}>
       <main className={styles.main_wrapper}>
         {testRooms.map((room) => (
-          <RoomCard
+          <HouseRoomCard
             room={room}
             key={room.roomNumber}
             setIsModalOpen={setIsModalOpen}
