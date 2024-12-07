@@ -1,4 +1,5 @@
 import RoomCard from "../../common/RoomCard/RoomCard";
+import CleaningModal from "./CleaningModal/CleaningModal";
 import styles from "./HouseContents.module.css";
 
 interface Room {
@@ -56,11 +57,14 @@ const HouseContents = () => {
     },
   ];
   return (
-    <main className={styles.main_wrapper}>
-      {testRooms.map((room) => (
-        <RoomCard room={room} key={room.roomNumber} />
-      ))}
-    </main>
+    <div className={styles.wrapper}>
+      <main className={styles.main_wrapper}>
+        {testRooms.map((room) => (
+          <RoomCard room={room} key={room.roomNumber} />
+        ))}
+      </main>
+      <CleaningModal />
+    </div>
   );
 };
 
