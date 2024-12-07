@@ -1,5 +1,5 @@
 import { FaCheckCircle, FaKey } from "react-icons/fa";
-import styles from "./FrontRoomCard.module.css";
+import styles from "./RoomCard.module.css";
 
 interface Room {
   roomNumber: number;
@@ -16,7 +16,7 @@ type Props = {
   room: Room;
 };
 
-const FrontRoomCard = ({ room }: Props) => {
+const RoomCard = ({ room }: Props) => {
   return (
     <div className={styles.room_card} key={room.roomNumber}>
       <div className={styles.room_card_header}>
@@ -51,4 +51,4 @@ const FrontRoomCard = ({ room }: Props) => {
   );
 };
 
-export default FrontRoomCard;
+export default RoomCard;

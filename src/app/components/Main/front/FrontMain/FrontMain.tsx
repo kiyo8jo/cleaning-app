@@ -1,5 +1,5 @@
+import RoomCard from "../../common/RoomCard/RoomCard";
 import styles from "./FrontMain.module.css";
-import FrontRoomCard from "./FrontRoomCard/FrontRoomCard";
 
 interface Room {
   roomNumber: number;
@@ -58,7 +58,7 @@ const FrontMain = () => {
   return (
     <main className={styles.main_wrapper}>
       {testRooms.map((room) => (
-        <FrontRoomCard room={room} key={room.roomNumber} />
+        <RoomCard room={room} key={room.roomNumber} />
       ))}
     </main>
   );
