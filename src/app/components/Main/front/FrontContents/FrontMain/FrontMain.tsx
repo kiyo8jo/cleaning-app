@@ -1,5 +1,6 @@
-import FrontRoomCard from "../FrontRoomCard/FrontRoomCard";
+
 import styles from "./FrontMain.module.css";
+import FrontRoomCard from "./FrontRoomCard/FrontRoomCard";
 
 interface Room {
   roomNumber: number;

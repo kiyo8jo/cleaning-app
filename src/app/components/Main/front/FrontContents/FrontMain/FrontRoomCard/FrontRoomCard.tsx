@@ -1,4 +1,5 @@
-import RoomCard from "../../common/RoomCard/RoomCard";
+
+import RoomCard from "@/app/components/Main/common/RoomCard/RoomCard";
 import styles from "./FrontRoomCard.module.css";
 
 interface Room {

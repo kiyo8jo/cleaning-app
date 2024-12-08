@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import CleaningModal from "../CleaningModal/CleaningModal";
+import CleaningModal from "./CleaningModal/CleaningModal";
 import styles from "./HouseContents.module.css";
-import HouseRoomCard from "../HouseRoomCard/HouseRoomCard";
+import HouseRoomCard from "./HouseRoomCard/HouseRoomCard";
 
 interface Room {
   roomNumber: number;

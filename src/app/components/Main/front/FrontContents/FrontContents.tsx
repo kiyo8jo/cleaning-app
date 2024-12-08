@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import FrontAside from "../FrontAside/FrontAside";
-import FrontMain from "../FrontMain/FrontMain";
+import FrontAside from "./FrontAside/FrontAside";
+
 import styles from "./FrontContents.module.css";
+import FrontMain from "./FrontMain/FrontMain";
 
 interface Room {
   roomNumber: number;
