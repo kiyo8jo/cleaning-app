@@ -1,9 +1,24 @@
 import styles from "./FrontAside.module.css";
 
-const FrontAside = () => {
+interface Room {
+  roomNumber: number;
+  roomType: string;
+  cleaningType: string;
+  nowBeds: number;
+  newBeds: number;
+  adult: number;
+  inf: number;
+  kidInf: number;
+}
+
+interface Props {
+  targetRoom: Room | null;
+}
+
+const FrontAside = ({ targetRoom }: Props) => {
   return (
     <aside className={styles.aside_wrapper}>
-      <h2 className={styles.edit_title}>編集</h2>
+      <h2 className={styles.edit_title}>{`${targetRoom?.roomNumber}の編集`}</h2>
       <form>
         <div className={styles.edit_item_container}>
           {/* cleaningType */}

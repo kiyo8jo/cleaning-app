@@ -1,4 +1,4 @@
-import RoomCard from "../../common/RoomCard/RoomCard";
+import FrontRoomCard from "../FrontRoomCard/FrontRoomCard";
 import styles from "./FrontMain.module.css";
 
 interface Room {
@@ -12,53 +12,20 @@ interface Room {
   kidInf: number;
 }
 
-const FrontMain = () => {
-  const testRooms: Room[] = [
-    {
-      roomNumber: 221,
-      roomType: "OTP",
-      cleaningType: "OUT",
-      nowBeds: 3,
-      newBeds: 3,
-      adult: 2,
-      inf: 1,
-      kidInf: 0,
-    },
-    {
-      roomNumber: 223,
-      roomType: "OTP",
-      cleaningType: "OUT",
-      nowBeds: 3,
-      newBeds: 3,
-      adult: 2,
-      inf: 1,
-      kidInf: 0,
-    },
-    {
-      roomNumber: 224,
-      roomType: "OTP",
-      cleaningType: "OUT",
-      nowBeds: 3,
-      newBeds: 3,
-      adult: 2,
-      inf: 1,
-      kidInf: 0,
-    },
-    {
-      roomNumber: 225,
-      roomType: "OTP",
-      cleaningType: "OUT",
-      nowBeds: 3,
-      newBeds: 3,
-      adult: 2,
-      inf: 1,
-      kidInf: 0,
-    },
-  ];
+interface Props {
+  testRooms: Room[];
+  setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
+}
+
+const FrontMain = ({ testRooms, setTargetRoom }: Props) => {
   return (
     <main className={styles.main_wrapper}>
       {testRooms.map((room) => (
-        <RoomCard room={room} key={room.roomNumber} />
+        <FrontRoomCard
+          key={room.roomNumber}
+          room={room}
+          setTargetRoom={setTargetRoom}
+        />
       ))}
     </main>
   );
