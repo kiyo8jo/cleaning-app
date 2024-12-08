@@ -60,6 +60,7 @@ const HouseContents = () => {
     },
   ];
 
+  const [targetRoom, setTargetRoom] = useState<Room | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
@@ -67,13 +68,19 @@ const HouseContents = () => {
       <main className={styles.main_wrapper}>
         {testRooms.map((room) => (
           <HouseRoomCard
-            room={room}
             key={room.roomNumber}
+            room={room}
             setIsModalOpen={setIsModalOpen}
+            setTargetRoom={setTargetRoom}
           />
         ))}
       </main>
-      {isModalOpen && <CleaningModal setIsModalOpen={setIsModalOpen} />}
+      {isModalOpen && (
+        <CleaningModal
+          targetRoom={targetRoom}
+          setIsModalOpen={setIsModalOpen}
+        />
+      )}
     </div>
   );
 };

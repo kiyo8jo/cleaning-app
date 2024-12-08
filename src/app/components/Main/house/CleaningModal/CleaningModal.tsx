@@ -1,14 +1,28 @@
 import styles from "./CleaningModal.module.css";
 
+interface Room {
+  roomNumber: number;
+  roomType: string;
+  cleaningType: string;
+  nowBeds: number;
+  newBeds: number;
+  adult: number;
+  inf: number;
+  kidInf: number;
+}
+
 type Props = {
+  targetRoom: Room | null;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const CleaningModal = ({ setIsModalOpen }: Props) => {
+const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal_wrapper}>
-        <h2 className={styles.title}>清掃状況</h2>
+        <h2
+          className={styles.title}
+        >{`${targetRoom?.roomNumber}の清掃状況`}</h2>
         <form>
           <div className={styles.status_item_container}>
             <label htmlFor="out">Out</label>
