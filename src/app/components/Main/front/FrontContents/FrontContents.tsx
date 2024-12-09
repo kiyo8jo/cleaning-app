@@ -5,17 +5,7 @@ import FrontAside from "./FrontAside/FrontAside";
 
 import styles from "./FrontContents.module.css";
 import FrontMain from "./FrontMain/FrontMain";
-
-interface Room {
-  roomNumber: number;
-  roomType: string;
-  cleaningType: string;
-  nowBeds: number;
-  newBeds: number;
-  adult: number;
-  inf: number;
-  kidInf: number;
-}
+import { Room } from "@/app/types/types";
 
 const FrontContents = () => {
   const testRooms: Room[] = [
@@ -64,7 +54,7 @@ const FrontContents = () => {
   return (
     <div className={styles.front_contents_wrapper}>
       <FrontMain testRooms={testRooms} setTargetRoom={setTargetRoom} />
-      <FrontAside targetRoom={targetRoom}/>
+      <FrontAside targetRoom={targetRoom} />
     </div>
   );
 };

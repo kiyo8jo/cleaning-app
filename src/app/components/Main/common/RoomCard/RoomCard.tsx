@@ -1,16 +1,6 @@
 import { FaCheckCircle, FaKey } from "react-icons/fa";
 import styles from "./RoomCard.module.css";
-
-interface Room {
-  roomNumber: number;
-  roomType: string;
-  cleaningType: string;
-  nowBeds: number;
-  newBeds: number;
-  adult: number;
-  inf: number;
-  kidInf: number;
-}
+import { Room } from "@/app/types/types";
 
 interface Props {
   room: Room;
