@@ -3,78 +3,53 @@ import { Room } from "./types/types";
 export const testRooms: Room[] = [
   {
     roomNumber: 221,
-
     roomType: "OTP",
-
     cleaningType: "OUT-IN",
 
     isKeyBack: false,
-
     isCleaningComplete: true,
-    // outCleaningComplete: false,
-    // inCleaningComplete: false,
-    // stayCleaningComplete: false,
-    // noneCleaningComplete: false,
-
     stayCleaningType: null,
 
     nowBeds: 3,
     newBeds: 3,
-    adult: 2,
-    inf: 1,
-    kidInf: 0,
+    adult: 3,
+    inf: 3,
+    kidInf: 3,
 
     memo: "memo",
   },
   {
     roomNumber: 223,
-
     roomType: "OTP",
-
     cleaningType: "NONE",
 
     isKeyBack: true,
-
     isCleaningComplete: true,
-    // outCleaningComplete: false,
-    // inCleaningComplete: false,
-    // stayCleaningComplete: false,
-    // noneCleaningComplete: false,
-
     stayCleaningType: null,
 
-    nowBeds: 3,
-    newBeds: 3,
+    nowBeds: 2,
+    newBeds: 2,
     adult: 2,
-    inf: 1,
-    kidInf: 0,
+    inf: 2,
+    kidInf: 2,
 
-    memo: "memo",
+    memo: "memomemo",
   },
   {
     roomNumber: 224,
-
     roomType: "MTP",
-
-    cleaningType: "OUT",
+    cleaningType: "IN",
 
     isKeyBack: true,
-
     isCleaningComplete: false,
-
-    // outCleaningComplete: false,
-    // inCleaningComplete: false,
-    // stayCleaningComplete: false,
-    // noneCleaningComplete: false,
-
     stayCleaningType: null,
 
-    nowBeds: 3,
-    newBeds: 3,
-    adult: 2,
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
     inf: 1,
-    kidInf: 0,
+    kidInf: 1,
 
-    memo: "memo",
+    memo: "memomemomemo",
   },
 ];

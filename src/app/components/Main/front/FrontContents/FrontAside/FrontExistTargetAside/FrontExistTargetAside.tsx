@@ -6,6 +6,7 @@ interface Props {
 }
 
 const FrontExistTargetAside = ({ targetRoom }: Props) => {
+  // );
   return (
     <aside className={styles.aside_wrapper}>
       <h2 className={styles.edit_title}>{`${targetRoom?.roomNumber}の編集`}</h2>
@@ -14,26 +15,38 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           {/* cleaningType */}
           <div className={styles.edit_item}>
             <label htmlFor="cleaning_type">cleaningType</label>
-            <select id="cleaning_type">
-              <option value="out">out</option>
-              <option value="in">in</option>
-              <option value="out-in">out-in</option>
-              <option value="stay">stay</option>
-              <option value="none">none</option>
+            <select
+              id="cleaning_type"
+              defaultValue={targetRoom?.cleaningType}
+              key={targetRoom?.cleaningType}
+            >
+              <option value="OUT">OUT</option>
+              <option value="IN">IN</option>
+              <option value="OUT-IN">OUT-IN</option>
+              <option value="STAY">STAY</option>
+              <option value="NONE">NONE</option>
             </select>
           </div>
           {/* key */}
           <div className={styles.edit_item}>
-            <label htmlFor="key">key</label>
-            <select id="key">
-              <option value="back">backed</option>
-              <option value="not-back">not-back</option>
+            <label htmlFor="key_back">isKeyBack</label>
+            <select
+              id="key_back"
+              defaultValue={Number(targetRoom?.isKeyBack)}
+              key={Number(targetRoom?.isKeyBack)}
+            >
+              <option value="0">false</option>
+              <option value="1">true</option>
             </select>
           </div>
           {/* nowBeds */}
           <div className={styles.edit_item}>
-            <label htmlFor="nowBeds">nowBeds</label>
-            <select id="nowBeds">
+            <label htmlFor="now_beds">nowBeds</label>
+            <select
+              id="now_beds"
+              defaultValue={targetRoom?.nowBeds}
+              key={targetRoom?.nowBeds}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -42,8 +55,12 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           </div>
           {/* newBeds */}
           <div className={styles.edit_item}>
-            <label htmlFor="newBeds">newBeds</label>
-            <select id="newBeds">
+            <label htmlFor="new_beds">newBeds</label>
+            <select
+              id="new_beds"
+              defaultValue={targetRoom?.newBeds}
+              key={targetRoom?.newBeds}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -53,7 +70,11 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           {/* adult */}
           <div className={styles.edit_item}>
             <label htmlFor="adult">adult</label>
-            <select id="adult">
+            <select
+              id="adult"
+              defaultValue={targetRoom?.adult}
+              key={targetRoom?.adult}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -63,7 +84,11 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           {/* inf */}
           <div className={styles.edit_item}>
             <label htmlFor="inf">inf</label>
-            <select id="inf">
+            <select
+              id="inf"
+              defaultValue={targetRoom?.inf}
+              key={targetRoom?.inf}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -72,8 +97,12 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           </div>
           {/* kidInf */}
           <div className={styles.edit_item}>
-            <label htmlFor="kidInf">kidInf</label>
-            <select id="kidInf">
+            <label htmlFor="kid_inf">kidInf</label>
+            <select
+              id="kid_inf"
+              defaultValue={targetRoom?.kidInf}
+              key={targetRoom?.kidInf}
+            >
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -82,8 +111,12 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           </div>
           {/* isCleaning */}
           <div className={styles.edit_item}>
-            <label htmlFor="isCleaning">isCleaning</label>
-            <select id="isCleaning">
+            <label htmlFor="is_cleaning_complete">isCleaning</label>
+            <select
+              id="is_cleaning_complete"
+              defaultValue={Number(targetRoom?.isCleaningComplete)}
+              key={Number(targetRoom?.isCleaningComplete)}
+            >
               <option value="0">false</option>
               <option value="1">true</option>
             </select>
@@ -91,7 +124,11 @@ const FrontExistTargetAside = ({ targetRoom }: Props) => {
           {/* memo */}
           <div className={styles.edit_item}>
             <label htmlFor="memo">memo</label>
-            <textarea id="memo"></textarea>
+            <textarea
+              id="memo"
+              defaultValue={targetRoom?.memo}
+              key={targetRoom?.memo}
+            ></textarea>
           </div>
         </div>
         <div className={styles.button_container}>
