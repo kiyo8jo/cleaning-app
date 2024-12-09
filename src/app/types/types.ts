@@ -12,7 +12,7 @@ export interface Room {
   stayCleaningComplete: boolean;
   noneCleaningComplete: boolean;
 
-  stayCleaningType: string;
+  stayCleaningType: string | null;
 
   nowBeds: number;
   newBeds: number;
