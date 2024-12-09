@@ -18,6 +18,26 @@
   scale: 1.05;
 }
 
+.OUT {
+  background-color: rgb(252, 225, 225);
+}
+
+.IN {
+  background-color: rgb(226, 226, 253);
+}
+
+.OUT-IN {
+  background-color: rgb(235, 235, 194);
+}
+
+.STAY {
+  background-color: rgb(210, 243, 191);
+}
+
+.NONE {
+  background-color: rgb(235, 235, 235);
+}
+
 /* room_card_header */
 
 .room_card_header {

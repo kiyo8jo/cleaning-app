@@ -6,7 +6,7 @@ export const testRooms: Room[] = [
 
     roomType: "OTP",
 
-    cleaningType: "OUT",
+    cleaningType: "OUT-IN",
 
     isKeyBack: true,
 
@@ -30,7 +30,7 @@ export const testRooms: Room[] = [
 
     roomType: "OTP",
 
-    cleaningType: "OUT",
+    cleaningType: "NONE",
 
     isKeyBack: true,
 

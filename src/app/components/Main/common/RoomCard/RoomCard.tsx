@@ -8,7 +8,12 @@ interface Props {
 
 const RoomCard = ({ room }: Props) => {
   return (
-    <div className={styles.room_card} key={room.roomNumber}>
+    <div
+      className={`${styles.room_card} ${
+        room.cleaningType ? styles[room.cleaningType] : ""
+      }`}
+      key={room.roomNumber}
+    >
       <div className={styles.room_card_header}>
         <div>{`${room.roomNumber}(${room.roomType})`}</div>
         <div>{room.cleaningType}</div>
@@ -34,7 +39,7 @@ const RoomCard = ({ room }: Props) => {
         </div>
         <div className={styles.right_container}>
           <p className={styles.label}>Memo</p>
-          <p>roomMemo</p>
+          <p>{room.memo}</p>
         </div>
       </div>
     </div>
