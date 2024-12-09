@@ -8,12 +8,13 @@ export const testRooms: Room[] = [
 
     cleaningType: "OUT-IN",
 
-    isKeyBack: true,
+    isKeyBack: false,
 
-    outCleaningComplete: false,
-    inCleaningComplete: false,
-    stayCleaningComplete: false,
-    noneCleaningComplete: false,
+    isCleaningComplete: true,
+    // outCleaningComplete: false,
+    // inCleaningComplete: false,
+    // stayCleaningComplete: false,
+    // noneCleaningComplete: false,
 
     stayCleaningType: null,
 
@@ -34,10 +35,11 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
 
-    outCleaningComplete: false,
-    inCleaningComplete: false,
-    stayCleaningComplete: false,
-    noneCleaningComplete: false,
+    isCleaningComplete: true,
+    // outCleaningComplete: false,
+    // inCleaningComplete: false,
+    // stayCleaningComplete: false,
+    // noneCleaningComplete: false,
 
     stayCleaningType: null,
 
@@ -58,10 +60,12 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
 
-    outCleaningComplete: false,
-    inCleaningComplete: false,
-    stayCleaningComplete: false,
-    noneCleaningComplete: false,
+    isCleaningComplete: false,
+
+    // outCleaningComplete: false,
+    // inCleaningComplete: false,
+    // stayCleaningComplete: false,
+    // noneCleaningComplete: false,
 
     stayCleaningType: null,
 

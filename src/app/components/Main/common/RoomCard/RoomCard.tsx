@@ -19,11 +19,9 @@ const RoomCard = ({ room }: Props) => {
         <div>{room.cleaningType}</div>
       </div>
       <div className={styles.room_card_contents}>
-        <div className={styles.key_icon}>
-          <FaKey />
-        </div>
+        <div className={styles.key_icon}>{room.isKeyBack ? <FaKey /> : ""}</div>
         <div className={styles.check_icon}>
-          <FaCheckCircle />
+          {room.isCleaningComplete ? <FaCheckCircle /> : ""}
         </div>
       </div>
       <div className={styles.room_card_footer}>

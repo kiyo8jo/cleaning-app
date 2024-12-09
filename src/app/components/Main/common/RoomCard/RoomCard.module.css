@@ -65,10 +65,14 @@
 
 .room_card_contents > .key_icon {
   color: rgb(90, 168, 110);
+  width: 50%;
+  text-align: center;
 }
 
 .room_card_contents > .check_icon {
   color: rgb(97, 97, 241);
+  width: 50%;
+  text-align: center;
 }
 
 /* room_card_footer */

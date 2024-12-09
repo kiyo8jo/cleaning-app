@@ -7,10 +7,12 @@ export interface Room {
 
   isKeyBack: boolean;
 
-  outCleaningComplete: boolean;
-  inCleaningComplete: boolean;
-  stayCleaningComplete: boolean;
-  noneCleaningComplete: boolean;
+  // outCleaningComplete: boolean;
+  // inCleaningComplete: boolean;
+  // stayCleaningComplete: boolean;
+  // noneCleaningComplete: boolean;
+
+  isCleaningComplete: boolean;
 
   stayCleaningType: string | null;
 
