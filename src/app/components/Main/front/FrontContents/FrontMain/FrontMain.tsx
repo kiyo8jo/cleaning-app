@@ -3,20 +3,22 @@ import styles from "./FrontMain.module.css";
 import FrontRoomCard from "./FrontRoomCard/FrontRoomCard";
 
 interface Props {
-  testRooms: Room[];
+  rooms: Room[] | null;
   setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
 }
 
-const FrontMain = ({ testRooms, setTargetRoom }: Props) => {
+const FrontMain = ({ rooms, setTargetRoom }: Props) => {
   return (
     <main className={styles.main_wrapper}>
-      {testRooms.map((room) => (
-        <FrontRoomCard
-          key={room.roomNumber}
-          room={room}
-          setTargetRoom={setTargetRoom}
-        />
-      ))}
+      {rooms
+        ? rooms.map((room) => (
+            <FrontRoomCard
+              key={room.roomNumber}
+              room={room}
+              setTargetRoom={setTargetRoom}
+            />
+          ))
+        : "roomsがありません"}
     </main>
   );
 };

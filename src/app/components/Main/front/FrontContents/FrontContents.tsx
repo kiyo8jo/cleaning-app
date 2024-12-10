@@ -9,11 +9,17 @@ import { Room } from "@/app/types/types";
 import { testRooms } from "@/app/testRooms";
 
 const FrontContents = () => {
+  const [rooms, setRooms] = useState<Room[] | null>(testRooms);
   const [targetRoom, setTargetRoom] = useState<Room | null>(null);
   return (
     <div className={styles.front_contents_wrapper}>
-      <FrontMain testRooms={testRooms} setTargetRoom={setTargetRoom} />
-      <FrontAside targetRoom={targetRoom} />
+      <FrontMain rooms={rooms} setTargetRoom={setTargetRoom} />
+      <FrontAside
+        rooms={rooms}
+        setRooms={setRooms}
+        targetRoom={targetRoom}
+        setTargetRoom={setTargetRoom}
+      />
     </div>
   );
 };
