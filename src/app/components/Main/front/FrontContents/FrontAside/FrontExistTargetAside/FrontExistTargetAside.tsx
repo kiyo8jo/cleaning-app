@@ -3,6 +3,15 @@
 import { Room } from "@/app/types/types";
 import styles from "../FrontAside.module.css";
 import { useState } from "react";
+import {
+  bedsOptions,
+  cleaningTypeOptions,
+  createObjOptions,
+  createOptions,
+  guestOptions,
+  objOptions,
+  stayCleaningTypeOptions,
+} from "./options";
 
 interface Props {
   rooms: Room[] | null;
@@ -17,50 +26,14 @@ const FrontExistTargetAside = ({
   targetRoom,
   setTargetRoom,
 }: Props) => {
-  // options
-  const cleaningTypeOptions = ["OUT", "IN", "OUT-IN", "STAY", "NONE"];
-  const bedsOptions = [1, 2, 3, 4];
-  const guestOptions = [0, 1, 2, 3, 4, 5];
-  const objOptions = [
-    { value: 0, text: "false" },
-    { value: 1, text: "true" },
-  ];
-
-  // オプションを作る関数（cleaningType,beds,guests用）
-  const createObjOptions = (
-    targetOptions: {
-      value: number;
-      text: string;
-    }[]
-  ) => {
-    return targetOptions.map((option: { value: number; text: string }) => (
-      <option value={option.value} key={option.value}>
-        {option.text}
-      </option>
-    ));
-  };
-
-  // オプションを作る関数（key,isCleaningComplete用）
-  const createOptions = (targetOptions: string[] | number[]) => {
-    return targetOptions.map((option) => (
-      <option key={option} value={option}>
-        {option}
-      </option>
-    ));
-  };
-
-  // 新しいroomsを作る関数
-  const createNewRooms = () => {
-    const _noRemakeRooms = rooms!.filter((room) => {
-      return room!.roomNumber !== newRoom.roomNumber;
-    });
-    const _newRooms = [..._noRemakeRooms, newRoom];
-    return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
-  };
+ 
 
   // state
   const [cleaningType, setCleaningType] = useState<string>(
     targetRoom.cleaningType
+  );
+  const [stayCleaningType, setStayCleaningType] = useState<string | null>(
+    targetRoom.stayCleaningType
   );
   const [isKeyBack, setIsKeyBack] = useState<number>(
     Number(targetRoom.isKeyBack)
@@ -79,6 +52,7 @@ const FrontExistTargetAside = ({
   const newRoom: Room = {
     ...targetRoom,
     cleaningType: cleaningType,
+    stayCleaningType: stayCleaningType,
     isKeyBack: Boolean(isKeyBack),
     nowBeds: nowBeds,
     newBeds: newBeds,
@@ -89,13 +63,31 @@ const FrontExistTargetAside = ({
     memo: memo,
   };
 
+  // cleaningTypeをSTAYからほかのものに変えた際、stayCleaningTypeをnullに初期化する関数
+  const initializeNewRoom = () => {
+    if (newRoom.cleaningType !== "STAY") {
+      newRoom.stayCleaningType = null;
+    }
+    return newRoom;
+  };
+
+  // 新しいroomsを作る関数
+  const createNewRooms = () => {
+    const _noRemakeRooms = rooms!.filter((room) => {
+      return room!.roomNumber !== newRoom.roomNumber;
+    });
+    const _newRooms = [..._noRemakeRooms, newRoom];
+    return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
+  };
+
   // submit時の処理
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    initializeNewRoom();
     setRooms(createNewRooms());
     setTargetRoom(null);
   };
-
+  console.log(targetRoom.stayCleaningType);
   return (
     <aside className={styles.aside_wrapper}>
       <h2 className={styles.edit_title}>{`${targetRoom.roomNumber}の編集`}</h2>
@@ -113,6 +105,24 @@ const FrontExistTargetAside = ({
               {createOptions(cleaningTypeOptions)}
             </select>
           </div>
+          {/* stayCleaningType */}
+          {/* Form内でSTAYを選択している場合のみ表示 */}
+          {cleaningType === "STAY" ? (
+            <div className={styles.edit_item}>
+              <label htmlFor="stay_cleaning_type">stayCleaningType</label>
+              <select
+                id="stay_cleaning_type"
+                defaultValue={stayCleaningType!}
+                key={stayCleaningType}
+                onChange={(e) => setStayCleaningType(String(e.target.value))}
+              >
+                {createOptions(stayCleaningTypeOptions)}
+              </select>
+            </div>
+          ) : (
+            ""
+          )}
+
           {/* isKeyBack */}
           <div className={styles.edit_item}>
             <label htmlFor="is_key_back">isKeyBack</label>
