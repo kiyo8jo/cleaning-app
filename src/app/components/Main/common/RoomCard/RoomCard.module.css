@@ -51,6 +51,11 @@
   align-items: center;
 }
 
+.room_card_header > div {
+  text-align: center;
+  width: 50%;
+}
+
 /* room_card_contents */
 
 .room_card_contents {
@@ -86,6 +91,7 @@
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: space-around;
 }
 
 .room_card_footer > .left_container,
@@ -102,4 +108,11 @@
 
 .room_card_footer .label {
   font-weight: bold;
+}
+
+.memo {
+  height: 85%;
+  overflow-wrap: break-word;
+  text-align: left;
+  overflow-y: auto;
 }

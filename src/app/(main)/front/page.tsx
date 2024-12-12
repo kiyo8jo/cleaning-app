@@ -4,7 +4,6 @@ import FloorChangeButton from "@/app/components/Main/common/FloorChangeButton/Fl
 
 const frontPage = () => {
   return (
-    // front,houseのcssは後でlayout.tsxにまとめる
     <div className={styles.wrapper}>
       <FloorChangeButton />
       <FrontContents />

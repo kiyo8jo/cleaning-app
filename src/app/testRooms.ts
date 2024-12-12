@@ -16,7 +16,7 @@ export const testRooms: Room[] = [
     inf: 3,
     kidInf: 3,
 
-    memo: "memo",
+    memo: "memomemomemomemo memomemomemomemo memomemomemomemo memomemomemomemo",
   },
   {
     roomNumber: 223,
@@ -33,7 +33,7 @@ export const testRooms: Room[] = [
     inf: 2,
     kidInf: 2,
 
-    memo: "memomemo",
+    memo: "memomemomemomemomemomemomemomemo",
   },
   {
     roomNumber: 224,
@@ -51,5 +51,345 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "memomemomemo",
+  },
+  {
+    roomNumber: 225,
+    roomType: "OTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "memomemomemo",
+  },
+  {
+    roomNumber: 226,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "memomemomemo",
+  },
+  {
+    roomNumber: 227,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 228,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 229,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 230,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 231,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 232,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 233,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 234,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 236,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 237,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 238,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 239,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 240,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 241,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 242,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 243,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 244,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
+  },
+  {
+    roomNumber: 245,
+    roomType: "MTP",
+    cleaningType: "IN",
+
+    isKeyBack: true,
+    isCleaningComplete: false,
+    stayCleaningType: null,
+
+    nowBeds: 1,
+    newBeds: 2,
+    adult: 1,
+    inf: 1,
+    kidInf: 1,
+
+    memo: "",
   },
 ];

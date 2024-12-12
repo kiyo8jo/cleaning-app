@@ -37,7 +37,7 @@ const RoomCard = ({ room }: Props) => {
         </div>
         <div className={styles.right_container}>
           <p className={styles.label}>Memo</p>
-          <p>{room.memo}</p>
+          <p className={styles.memo}>{room.memo}</p>
         </div>
       </div>
     </div>
