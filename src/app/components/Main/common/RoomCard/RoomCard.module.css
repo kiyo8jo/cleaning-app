@@ -38,6 +38,10 @@
   background-color: rgb(235, 235, 235);
 }
 
+.NORMAL {
+  background-color: white;
+}
+
 /* room_card_header */
 
 .room_card_header {

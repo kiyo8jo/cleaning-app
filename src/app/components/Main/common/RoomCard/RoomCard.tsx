@@ -10,7 +10,8 @@ const RoomCard = ({ room }: Props) => {
   return (
     <div
       className={`${styles.room_card} ${
-        room.cleaningType ? styles[room.cleaningType] : ""
+        (room.stayCleaningType === "NORMAL" && styles[room.stayCleaningType]) ||
+        (room.cleaningType && styles[room.cleaningType])
       }`}
       key={room.roomNumber}
     >
@@ -19,9 +20,9 @@ const RoomCard = ({ room }: Props) => {
         <div>{room.cleaningType}</div>
       </div>
       <div className={styles.room_card_contents}>
-        <div className={styles.key_icon}>{room.isKeyBack ? <FaKey /> : ""}</div>
+        <div className={styles.key_icon}>{room.isKeyBack && <FaKey />}</div>
         <div className={styles.check_icon}>
-          {room.isCleaningComplete ? <FaCheckCircle /> : ""}
+          {room.isCleaningComplete && <FaCheckCircle />}
         </div>
       </div>
       <div className={styles.room_card_footer}>
