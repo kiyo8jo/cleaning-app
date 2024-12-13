@@ -16,7 +16,7 @@ import {
 interface Props {
   rooms: Room[] | null;
   setRooms: React.Dispatch<React.SetStateAction<Room[] | null>>;
-  targetRoom: Room;
+  targetRoom: Room | null;
   setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
 }
 
@@ -26,31 +26,29 @@ const FrontExistTargetAside = ({
   targetRoom,
   setTargetRoom,
 }: Props) => {
- 
-
   // state
   const [cleaningType, setCleaningType] = useState<string>(
-    targetRoom.cleaningType
+    targetRoom!.cleaningType
   );
-  const [stayCleaningType, setStayCleaningType] = useState<string | null>(
-    targetRoom.stayCleaningType
+  const [stayCleaningType, setStayCleaningType] = useState<string>(
+    targetRoom!.stayCleaningType
   );
   const [isKeyBack, setIsKeyBack] = useState<number>(
-    Number(targetRoom.isKeyBack)
+    Number(targetRoom!.isKeyBack)
   );
-  const [nowBeds, setNowBeds] = useState<number>(targetRoom.nowBeds);
-  const [newBeds, setNewBeds] = useState<number>(targetRoom.newBeds);
-  const [adult, setAdult] = useState<number>(targetRoom.adult);
-  const [inf, setInf] = useState<number>(targetRoom.inf);
-  const [kidInf, setKidInf] = useState<number>(targetRoom.kidInf);
+  const [nowBeds, setNowBeds] = useState<number>(targetRoom!.nowBeds);
+  const [newBeds, setNewBeds] = useState<number>(targetRoom!.newBeds);
+  const [adult, setAdult] = useState<number>(targetRoom!.adult);
+  const [inf, setInf] = useState<number>(targetRoom!.inf);
+  const [kidInf, setKidInf] = useState<number>(targetRoom!.kidInf);
   const [isCleaningComplete, setIsCleaningComplete] = useState<number>(
-    Number(targetRoom.isCleaningComplete)
+    Number(targetRoom!.isCleaningComplete)
   );
-  const [memo, setMemo] = useState<string>(targetRoom.memo);
+  const [memo, setMemo] = useState<string>(targetRoom!.memo);
 
   // formに入力された値で新しくroomを作る
   const newRoom: Room = {
-    ...targetRoom,
+    ...targetRoom!,
     cleaningType: cleaningType,
     stayCleaningType: stayCleaningType,
     isKeyBack: Boolean(isKeyBack),
@@ -63,64 +61,69 @@ const FrontExistTargetAside = ({
     memo: memo,
   };
 
-  // cleaningTypeをSTAYからほかのものに変えた際、stayCleaningTypeをnullに初期化する関数
-  const initializeNewRoom = () => {
-    if (newRoom.cleaningType !== "STAY") {
-      newRoom.stayCleaningType = null;
-    }
-    return newRoom;
-  };
-
   // 新しいroomsを作る関数
   const createNewRooms = () => {
     const _noRemakeRooms = rooms!.filter((room) => {
       return room!.roomNumber !== newRoom.roomNumber;
     });
-    const _newRooms = [..._noRemakeRooms, newRoom];
+    const _getInitializedNewRoom = () => {
+      if (newRoom.cleaningType !== "STAY") {
+        return { ...newRoom, stayCleaningType: "NOT-SELECT" };
+      } else {
+        return newRoom;
+      }
+    };
+    const _newRooms = [..._noRemakeRooms, _getInitializedNewRoom()];
     return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
   };
 
   // submit時の処理
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    initializeNewRoom();
+    if (newRoom.cleaningType !== "STAY") {
+      setStayCleaningType("NOT-SELECT");
+    }
     setRooms(createNewRooms());
+
     setTargetRoom(null);
   };
-  console.log(targetRoom.stayCleaningType);
+  console.log(targetRoom);
   return (
     <aside className={styles.aside_wrapper}>
-      <h2 className={styles.edit_title}>{`${targetRoom.roomNumber}の編集`}</h2>
+      <h2 className={styles.edit_title}>{`${targetRoom!.roomNumber}の編集`}</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.edit_item_container}>
           {/* cleaningType */}
+
           <div className={styles.edit_item}>
-            <label htmlFor="cleaningType">cleaningType</label>
+            <label htmlFor="cleaning_type">cleaningType</label>
             <select
-              id="cleaningType"
-              defaultValue={cleaningType}
-              key={cleaningType}
-              onChange={(e) => setCleaningType(String(e.target.value))}
+              id="cleaning_type"
+              defaultValue={targetRoom!.cleaningType}
+              key={targetRoom!.cleaningType}
+              onChange={(e) => setCleaningType(e.target.value)}
             >
               {createOptions(cleaningTypeOptions)}
             </select>
           </div>
           {/* stayCleaningType */}
           {/* Form内でSTAYを選択している場合のみ表示 */}
-          {cleaningType === "STAY" ? (
+          {cleaningType === "STAY" && (
             <div className={styles.edit_item}>
               <label htmlFor="stay_cleaning_type">stayCleaningType</label>
               <select
                 id="stay_cleaning_type"
-                defaultValue={stayCleaningType!}
-                key={stayCleaningType}
-                onChange={(e) => setStayCleaningType(String(e.target.value))}
+                key={targetRoom!.stayCleaningType}
+                defaultValue={
+                  targetRoom!.stayCleaningType === "NOT-SELECT"
+                    ? "ECO"
+                    : targetRoom!.stayCleaningType
+                }
+                onChange={(e) => setStayCleaningType(e.target.value)}
               >
                 {createOptions(stayCleaningTypeOptions)}
               </select>
             </div>
-          ) : (
-            ""
           )}
 
           {/* isKeyBack */}
@@ -128,8 +131,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="is_key_back">isKeyBack</label>
             <select
               id="is_key_back"
-              defaultValue={Number(targetRoom.isKeyBack)}
-              key={Number(targetRoom.isKeyBack)}
+              defaultValue={Number(targetRoom!.isKeyBack)}
+              key={Number(targetRoom!.isKeyBack)}
               onChange={(e) => setIsKeyBack(Number(e.target.value))}
             >
               {createObjOptions(objOptions)}
@@ -140,8 +143,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="now_beds">nowBeds</label>
             <select
               id="now_beds"
-              defaultValue={targetRoom.nowBeds}
-              key={targetRoom.nowBeds}
+              defaultValue={targetRoom!.nowBeds}
+              key={targetRoom!.nowBeds}
               onChange={(e) => setNowBeds(Number(e.target.value))}
             >
               {createOptions(bedsOptions)}
@@ -152,8 +155,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="new_beds">newBeds</label>
             <select
               id="new_beds"
-              defaultValue={targetRoom.newBeds}
-              key={targetRoom.newBeds}
+              defaultValue={targetRoom!.newBeds}
+              key={targetRoom!.newBeds}
               onChange={(e) => setNewBeds(Number(e.target.value))}
             >
               {createOptions(bedsOptions)}
@@ -164,8 +167,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="adult">adult</label>
             <select
               id="adult"
-              defaultValue={targetRoom.adult}
-              key={targetRoom.adult}
+              defaultValue={targetRoom!.adult}
+              key={targetRoom!.adult}
               onChange={(e) => setAdult(Number(e.target.value))}
             >
               {createOptions(guestOptions)}
@@ -176,8 +179,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="inf">inf</label>
             <select
               id="inf"
-              defaultValue={targetRoom.inf}
-              key={targetRoom.inf}
+              defaultValue={targetRoom!.inf}
+              key={targetRoom!.inf}
               onChange={(e) => setInf(Number(e.target.value))}
             >
               {createOptions(guestOptions)}
@@ -188,8 +191,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="kid_inf">kidInf</label>
             <select
               id="kid_inf"
-              defaultValue={targetRoom.kidInf}
-              key={targetRoom.kidInf}
+              defaultValue={targetRoom!.kidInf}
+              key={targetRoom!.kidInf}
               onChange={(e) => setKidInf(Number(e.target.value))}
             >
               {createOptions(guestOptions)}
@@ -200,8 +203,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="is_cleaning_complete">isCleaningComplete</label>
             <select
               id="is_cleaning_complete"
-              defaultValue={Number(targetRoom.isCleaningComplete)}
-              key={Number(targetRoom.isCleaningComplete)}
+              defaultValue={Number(targetRoom!.isCleaningComplete)}
+              key={Number(targetRoom!.isCleaningComplete)}
               onChange={(e) => setIsCleaningComplete(Number(e.target.value))}
             >
               {createObjOptions(objOptions)}
@@ -212,8 +215,8 @@ const FrontExistTargetAside = ({
             <label htmlFor="memo">memo</label>
             <textarea
               id="memo"
-              defaultValue={targetRoom.memo}
-              key={targetRoom.memo}
+              defaultValue={targetRoom!.memo}
+              key={targetRoom!.memo}
               onChange={(e) => setMemo(String(e.target.value))}
             ></textarea>
           </div>

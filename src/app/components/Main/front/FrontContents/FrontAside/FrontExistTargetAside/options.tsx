@@ -1,6 +1,6 @@
 // options
 const cleaningTypeOptions = ["OUT", "IN", "OUT-IN", "STAY", "NONE"];
-const stayCleaningTypeOptions = ["Normal", "ECO"];
+const stayCleaningTypeOptions = ["NORMAL", "ECO", "NOT-SELECT"];
 const bedsOptions = [1, 2, 3, 4];
 const guestOptions = [0, 1, 2, 3, 4, 5];
 const objOptions = [

@@ -9,7 +9,7 @@ export interface Room {
 
   isCleaningComplete: boolean;
 
-  stayCleaningType: string | null;
+  stayCleaningType: string;
 
   nowBeds: number;
   newBeds: number;
