@@ -77,17 +77,32 @@ const FrontExistTargetAside = ({
     return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
   };
 
+  //バリデーションを行い、それ以外の場合newRoomをセットする関数
+  const validateAndSetNewRoom = () => {
+    if (
+      newRoom.cleaningType === "STAY" &&
+      newRoom.stayCleaningType === "NOT-SELECT"
+    ) {
+      alert("stayCleaningTypeが選択されていません");
+      return;
+    }
+    if (
+      newRoom.cleaningType !== "STAY" &&
+      newRoom.stayCleaningType !== "NOT-SELECT"
+    ) {
+      alert("必要のないstayCleaningTypeが選択されています");
+      return;
+    }
+
+    setRooms(createNewRooms());
+    setTargetRoom(null);
+  };
+
   // submit時の処理
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (newRoom.cleaningType !== "STAY") {
-      setStayCleaningType("NOT-SELECT");
-    }
-    setRooms(createNewRooms());
-
-    setTargetRoom(null);
+    validateAndSetNewRoom();
   };
-  console.log(targetRoom);
   return (
     <aside className={styles.aside_wrapper}>
       <h2 className={styles.edit_title}>{`${targetRoom!.roomNumber}の編集`}</h2>
@@ -107,24 +122,20 @@ const FrontExistTargetAside = ({
             </select>
           </div>
           {/* stayCleaningType */}
-          {/* Form内でSTAYを選択している場合のみ表示 */}
-          {cleaningType === "STAY" && (
+
+          {
             <div className={styles.edit_item}>
               <label htmlFor="stay_cleaning_type">stayCleaningType</label>
               <select
                 id="stay_cleaning_type"
                 key={targetRoom!.stayCleaningType}
-                defaultValue={
-                  targetRoom!.stayCleaningType === "NOT-SELECT"
-                    ? "ECO"
-                    : targetRoom!.stayCleaningType
-                }
+                defaultValue={targetRoom!.stayCleaningType}
                 onChange={(e) => setStayCleaningType(e.target.value)}
               >
                 {createOptions(stayCleaningTypeOptions)}
               </select>
             </div>
-          )}
+          }
 
           {/* isKeyBack */}
           <div className={styles.edit_item}>

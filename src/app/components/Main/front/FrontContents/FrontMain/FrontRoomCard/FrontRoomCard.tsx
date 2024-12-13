@@ -9,7 +9,12 @@ interface Props {
 
 const FrontRoomCard = ({ room, setTargetRoom }: Props) => {
   return (
-    <div className={styles.wrapper} onClick={() => setTargetRoom(room)}>
+    <div
+      className={`${styles.wrapper} ${
+        room.stayCleaningType === "NORMAL" ? styles[room.stayCleaningType] : ""
+      }`}
+      onClick={() => setTargetRoom(room)}
+    >
       <RoomCard room={room} />
     </div>
   );
