@@ -8,7 +8,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: false,
     isCleaningComplete: true,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 3,
     newBeds: 3,
@@ -17,6 +17,8 @@ export const testRooms: Room[] = [
     kidInf: 3,
 
     memo: "memomemomemomemo memomemomemomemo memomemomemomemo memomemomemomemo",
+
+    isWaitingCheck: true,
   },
   {
     roomNumber: 223,
@@ -24,8 +26,8 @@ export const testRooms: Room[] = [
     cleaningType: "NONE",
 
     isKeyBack: true,
-    isCleaningComplete: true,
-    stayCleaningType: 'NOT-SELECT',
+    isCleaningComplete: false,
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 2,
     newBeds: 2,
@@ -34,6 +36,7 @@ export const testRooms: Room[] = [
     kidInf: 2,
 
     memo: "memomemomemomemomemomemomemomemo",
+    isWaitingCheck: true,
   },
   {
     roomNumber: 224,
@@ -42,7 +45,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -51,6 +54,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "memomemomemo",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 225,
@@ -59,7 +63,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -68,6 +72,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "memomemomemo",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 226,
@@ -76,7 +81,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -85,6 +90,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "memomemomemo",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 227,
@@ -93,7 +99,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -102,6 +108,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 228,
@@ -110,7 +117,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -119,6 +126,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 229,
@@ -127,7 +135,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -136,6 +144,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 230,
@@ -144,7 +153,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -153,6 +162,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 231,
@@ -161,7 +171,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -170,6 +180,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 232,
@@ -178,7 +189,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -187,6 +198,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 233,
@@ -195,7 +207,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -204,6 +216,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 234,
@@ -212,7 +225,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -221,6 +234,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 236,
@@ -229,7 +243,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -238,6 +252,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 237,
@@ -246,7 +261,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -255,6 +270,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 238,
@@ -263,7 +279,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -272,6 +288,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 239,
@@ -280,7 +297,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -289,6 +306,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 240,
@@ -297,7 +315,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -306,6 +324,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 241,
@@ -314,7 +333,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -323,6 +342,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 242,
@@ -331,7 +351,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -340,6 +360,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 243,
@@ -348,7 +369,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -357,6 +378,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 244,
@@ -365,7 +387,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -374,6 +396,7 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
   {
     roomNumber: 245,
@@ -382,7 +405,7 @@ export const testRooms: Room[] = [
 
     isKeyBack: true,
     isCleaningComplete: false,
-    stayCleaningType: 'NOT-SELECT',
+    stayCleaningType: "NOT-SELECT",
 
     nowBeds: 1,
     newBeds: 2,
@@ -391,5 +414,6 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
   },
 ];

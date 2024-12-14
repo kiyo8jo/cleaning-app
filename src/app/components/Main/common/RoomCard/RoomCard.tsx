@@ -1,4 +1,4 @@
-import { FaCheckCircle, FaKey } from "react-icons/fa";
+import { FaCheckCircle, FaKey, FaStopCircle } from "react-icons/fa";
 import styles from "./RoomCard.module.css";
 import { Room } from "@/app/types/types";
 
@@ -20,9 +20,14 @@ const RoomCard = ({ room }: Props) => {
         <div>{room.cleaningType}</div>
       </div>
       <div className={styles.room_card_contents}>
-        <div className={styles.key_icon}>{room.isKeyBack && <FaKey />}</div>
+        <div className={styles.key_icon}>
+          {room.isKeyBack && <FaKey color="green" />}
+        </div>
         <div className={styles.check_icon}>
-          {room.isCleaningComplete && <FaCheckCircle />}
+          {room.isWaitingCheck && !room.isCleaningComplete && (
+            <FaStopCircle color="black" />
+          )}
+          {room.isCleaningComplete && <FaCheckCircle color="blue" />}
         </div>
       </div>
       <div className={styles.room_card_footer}>

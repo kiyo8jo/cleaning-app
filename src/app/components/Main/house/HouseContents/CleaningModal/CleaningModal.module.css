@@ -14,8 +14,7 @@
 /* modal_wrapper */
 
 .modal_wrapper {
-  width: 80%;
-  max-width: 300px;
+  width: 350px;
   height: 60%;
   position: relative;
   left: 50%;
@@ -35,12 +34,17 @@
   font-size: 26px;
 }
 
+.cleaning_type {
+  margin-bottom: 80px;
+  text-align: center;
+}
+
 /* status_item_container */
 
 .status_item_container {
   display: flex;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .status_item_container > label {
@@ -56,9 +60,13 @@
   justify-content: space-around;
 }
 
-.status_item_container > .status_item > input {
-  width: 150px;
-  background-color: blue;
+.status_item_container > .status_item > div {
+  display: flex;
+  gap: 10px;
+}
+
+.status_item_container > .status_item > div > label {
+  cursor: pointer;
 }
 
 /* button_container */
@@ -80,6 +88,7 @@
   margin: 0 10px;
   cursor: pointer;
   transition: all 0.2s;
+  font-weight: bold;
 }
 
 .button_container > button:hover {

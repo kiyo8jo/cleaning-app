@@ -18,4 +18,6 @@ export interface Room {
   kidInf: number;
 
   memo: string;
+
+  isWaitingCheck: boolean
 }
