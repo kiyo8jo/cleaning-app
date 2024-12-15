@@ -10,23 +10,16 @@ interface Props {
 }
 
 const FrontMain = ({ is1F, rooms_1f, rooms_2f, setTargetRoom }: Props) => {
+  const floorRooms = is1F ? rooms_1f : rooms_2f;
   return (
     <main className={styles.main_wrapper}>
-      {is1F
-        ? rooms_1f!.map((room) => (
-            <FrontRoomCard
-              key={room.roomNumber}
-              room={room}
-              setTargetRoom={setTargetRoom}
-            />
-          ))
-        : rooms_2f!.map((room) => (
-            <FrontRoomCard
-              key={room.roomNumber}
-              room={room}
-              setTargetRoom={setTargetRoom}
-            />
-          ))}
+      {floorRooms!.map((room) => (
+        <FrontRoomCard
+          key={room.roomNumber}
+          room={room}
+          setTargetRoom={setTargetRoom}
+        />
+      ))}
     </main>
   );
 };
