@@ -14,16 +14,22 @@ import {
 } from "./options";
 
 interface Props {
-  rooms: Room[] | null;
-  setRooms: React.Dispatch<React.SetStateAction<Room[] | null>>;
+  is1F: boolean;
+  rooms_1f: Room[] | null;
+  rooms_2f: Room[] | null;
   targetRoom: Room | null;
+  setRooms_1f: React.Dispatch<React.SetStateAction<Room[] | null>>;
+  setRooms_2f: React.Dispatch<React.SetStateAction<Room[] | null>>;
   setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
 }
 
 const FrontExistTargetAside = ({
-  rooms,
-  setRooms,
+  is1F,
+  rooms_1f,
+  rooms_2f,
   targetRoom,
+  setRooms_1f,
+  setRooms_2f,
   setTargetRoom,
 }: Props) => {
   // state
@@ -63,9 +69,12 @@ const FrontExistTargetAside = ({
 
   // 新しいroomsを作る関数
   const createNewRooms = () => {
-    const _noRemakeRooms = rooms!.filter((room) => {
+    const floorRooms = is1F ? rooms_1f : rooms_2f;
+
+    const _noRemakeRooms = floorRooms!.filter((room) => {
       return room!.roomNumber !== newRoom.roomNumber;
     });
+
     const _getInitializedNewRoom = () => {
       if (newRoom.cleaningType !== "STAY") {
         return { ...newRoom, stayCleaningType: "NOT-SELECT" };
@@ -94,7 +103,9 @@ const FrontExistTargetAside = ({
       return;
     }
 
-    setRooms(createNewRooms());
+    const setFloorRooms = is1F ? setRooms_1f : setRooms_2f;
+    setFloorRooms(createNewRooms);
+    
     setTargetRoom(null);
   };
 

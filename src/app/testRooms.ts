@@ -1,6 +1,6 @@
 import { Room } from "./types/types";
 
-export const testRooms: Room[] = [
+export const testRooms_1f: Room[] = [
   {
     roomNumber: 221,
     roomType: "OTP",
@@ -414,6 +414,46 @@ export const testRooms: Room[] = [
     kidInf: 1,
 
     memo: "",
+    isWaitingCheck: false,
+  },
+];
+
+export const testRooms_2f: Room[] = [
+  {
+    roomNumber: 301,
+    roomType: "OTP",
+    cleaningType: "OUT-IN",
+
+    isKeyBack: false,
+    isCleaningComplete: false,
+    stayCleaningType: "NOT-SELECT",
+
+    nowBeds: 3,
+    newBeds: 3,
+    adult: 3,
+    inf: 3,
+    kidInf: 3,
+
+    memo: "memomemomemomemo memomemomemomemo memomemomemomemo memomemomemomemo",
+
+    isWaitingCheck: false,
+  },
+  {
+    roomNumber: 303,
+    roomType: "OTP",
+    cleaningType: "NONE",
+
+    isKeyBack: false,
+    isCleaningComplete: false,
+    stayCleaningType: "NOT-SELECT",
+
+    nowBeds: 2,
+    newBeds: 2,
+    adult: 2,
+    inf: 2,
+    kidInf: 2,
+
+    memo: "memomemomemomemomemomemomemomemo",
     isWaitingCheck: false,
   },
 ];
