@@ -5,17 +5,23 @@ import styles from "./CleaningModal.module.css";
 import { useState } from "react";
 
 interface Props {
+  is1F: boolean;
+  rooms_1f: Room[] | null;
+  rooms_2f: Room[] | null;
   targetRoom: Room | null;
+  setRooms_1f: React.Dispatch<React.SetStateAction<Room[] | null>>;
+  setRooms_2f: React.Dispatch<React.SetStateAction<Room[] | null>>;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  rooms: Room[] | null;
-  setRooms: React.Dispatch<React.SetStateAction<Room[] | null>>;
 }
 
 const CleaningModal = ({
+  is1F,
+  rooms_1f,
+  rooms_2f,
   targetRoom,
+  setRooms_1f,
+  setRooms_2f,
   setIsModalOpen,
-  rooms,
-  setRooms,
 }: Props) => {
   const [isWaitingCheck, setIsWaitingCheck] = useState<boolean>(
     targetRoom!.isWaitingCheck
@@ -30,8 +36,11 @@ const CleaningModal = ({
     isCleaningComplete: isCleaningComplete,
   };
 
+  const floorRooms = is1F ? rooms_1f : rooms_2f;
+  const setFloorRooms = is1F ? setRooms_1f : setRooms_2f;
+
   const createNewRooms = () => {
-    const _noRemakeRooms = rooms!.filter((room) => {
+    const _noRemakeRooms = floorRooms!.filter((room) => {
       return room!.roomNumber !== newRoom.roomNumber;
     });
     const _newRooms = [..._noRemakeRooms, newRoom];
@@ -40,11 +49,9 @@ const CleaningModal = ({
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setRooms(createNewRooms());
+    setFloorRooms(createNewRooms());
     setIsModalOpen(false);
   };
-
-  console.log(targetRoom)
 
   return (
     <div className={styles.wrapper}>
