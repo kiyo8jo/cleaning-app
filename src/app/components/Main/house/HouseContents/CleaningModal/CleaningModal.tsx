@@ -7,16 +7,45 @@ import { useState } from "react";
 interface Props {
   targetRoom: Room | null;
   setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  rooms: Room[] | null;
+  setRooms: React.Dispatch<React.SetStateAction<Room[] | null>>;
 }
 
-const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
-  const [waitingCheck, setWaitingCheck] = useState<boolean>(
+const CleaningModal = ({
+  targetRoom,
+  setIsModalOpen,
+  rooms,
+  setRooms,
+}: Props) => {
+  const [isWaitingCheck, setIsWaitingCheck] = useState<boolean>(
     targetRoom!.isWaitingCheck
   );
   const [isCleaningComplete, setIsCleaningComplete] = useState<boolean>(
     targetRoom!.isCleaningComplete
   );
-  console.log(isCleaningComplete);
+
+  const newRoom: Room = {
+    ...targetRoom!,
+    isWaitingCheck: isWaitingCheck,
+    isCleaningComplete: isCleaningComplete,
+  };
+
+  const createNewRooms = () => {
+    const _noRemakeRooms = rooms!.filter((room) => {
+      return room!.roomNumber !== newRoom.roomNumber;
+    });
+    const _newRooms = [..._noRemakeRooms, newRoom];
+    return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setRooms(createNewRooms());
+    setIsModalOpen(false);
+  };
+
+  console.log(targetRoom)
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal_wrapper}>
@@ -24,7 +53,7 @@ const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
           targetRoom!.roomNumber
         }の清掃状況`}</h2>
         <h3 className={styles.cleaning_type}>{targetRoom!.cleaningType}</h3>
-        <form>
+        <form onSubmit={handleSubmit}>
           {/* cleaning */}
           <div className={styles.status_item_container}>
             <label htmlFor="is_waiting_check">isWaitingCheck</label>
@@ -35,8 +64,8 @@ const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
                   id="is_waiting_check_false"
                   name="is_waiting_check"
                   value="false"
-                  checked={!waitingCheck}
-                  onChange={() => setWaitingCheck(false)}
+                  checked={!isWaitingCheck}
+                  onChange={() => setIsWaitingCheck(false)}
                 />
                 <label htmlFor="is_waiting_check_false">false</label>
               </div>
@@ -46,8 +75,8 @@ const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
                   id="is_waiting_check_true"
                   name="is_waiting_check"
                   value="true"
-                  checked={waitingCheck}
-                  onChange={() => setWaitingCheck(true)}
+                  checked={isWaitingCheck}
+                  onChange={() => setIsWaitingCheck(true)}
                 />
                 <label htmlFor="is_waiting_check_true">true</label>
               </div>
@@ -82,9 +111,7 @@ const CleaningModal = ({ targetRoom, setIsModalOpen }: Props) => {
             </div>
           </div>
           <div className={styles.button_container}>
-            <button type="submit" onClick={() => setIsModalOpen(false)}>
-              送信
-            </button>
+            <button type="submit">送信</button>
             <button onClick={() => setIsModalOpen(false)}>キャンセル</button>
           </div>
         </form>

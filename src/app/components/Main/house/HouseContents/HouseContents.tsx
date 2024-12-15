@@ -10,11 +10,12 @@ import { testRooms } from "@/app/testRooms";
 const HouseContents = () => {
   const [targetRoom, setTargetRoom] = useState<Room | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [rooms, setRooms] = useState<Room[] | null>(testRooms);
 
   return (
     <div className={styles.wrapper}>
       <main className={styles.main_wrapper}>
-        {testRooms.map((room) => (
+        {rooms!.map((room) => (
           <HouseRoomCard
             key={room.roomNumber}
             room={room}
@@ -27,6 +28,8 @@ const HouseContents = () => {
         <CleaningModal
           targetRoom={targetRoom}
           setIsModalOpen={setIsModalOpen}
+          rooms={rooms}
+          setRooms={setRooms}
         />
       )}
     </div>
