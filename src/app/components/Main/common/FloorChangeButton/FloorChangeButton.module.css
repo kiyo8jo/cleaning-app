@@ -20,3 +20,8 @@
 .floor:hover {
   scale: 1.1;
 }
+
+.set {
+  border: 2px solid black;
+  pointer-events: none;
+}
