@@ -1,20 +1,30 @@
+"use client";
+
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
+import { setIsModalOpen } from "@/lib/features/modal/isModalOpen";
 import { Room } from "@/app/types/types";
-import RoomCard from "../../../common/RoomCard/RoomCard";
+import RoomCard from "@/app/components/Main/common/RoomCard/RoomCard";
 import styles from "./HouseRoomCard.module.css";
 
 interface Props {
   room: Room;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-  setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
 }
 
-const HouseRoomCard = ({ room, setIsModalOpen, setTargetRoom }: Props) => {
+const HouseRoomCard = ({ room }: Props) => {
+  const dispatch = useAppDispatch();
+  const { is1f } = useAppSelector((state) => state.is1f);
+  const { rooms1f } = useAppSelector((state) => state.rooms1f);
+  const { rooms2f } = useAppSelector((state) => state.rooms2f);
+
   return (
     <div
-      className={styles.wrapper}
+      className={`${styles.wrapper} ${
+        room.stayCleaningType === "NORMAL" && styles[room.stayCleaningType]
+      }`}
       onClick={() => {
-        setIsModalOpen(true);
-        setTargetRoom(room);
+        dispatch(setTargetRoom({ room, is1f, rooms1f, rooms2f }));
+        dispatch(setIsModalOpen());
       }}
     >
       <RoomCard room={room} />

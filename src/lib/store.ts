@@ -3,6 +3,7 @@ import rooms1fReducer from "../lib/features/rooms_1f/rooms1fSlice";
 import rooms2fReducer from "../lib/features/rooms_2f/rooms2fSlice";
 import is1fReducer from "../lib/features/is1f/is1fSlice";
 import targetRoomReducer from "../lib/features/targetRoom/targetRoomSlice";
+import isModalOpenReducer from "../lib/features/modal/isModalOpen";
 
 export const makeStore = () => {
   return configureStore({
@@ -11,6 +12,7 @@ export const makeStore = () => {
       rooms2f: rooms2fReducer,
       is1f: is1fReducer,
       targetRoom: targetRoomReducer,
+      isModalOpen: isModalOpenReducer,
     },
   });
 };

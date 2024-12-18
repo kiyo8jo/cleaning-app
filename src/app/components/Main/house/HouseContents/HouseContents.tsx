@@ -1,52 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useAppSelector } from "@/lib/hooks";
+import HouseRoomCard from "./HouseRoomCard/HouseRoomCard";
 import CleaningModal from "./CleaningModal/CleaningModal";
 import styles from "./HouseContents.module.css";
-import HouseRoomCard from "./HouseRoomCard/HouseRoomCard";
-import { Room } from "@/app/types/types";
 
-interface Props {
-  is1F: boolean;
-  rooms_1f: Room[] | null;
-  rooms_2f: Room[] | null;
-  setRooms_1f: React.Dispatch<React.SetStateAction<Room[] | null>>;
-  setRooms_2f: React.Dispatch<React.SetStateAction<Room[] | null>>;
-}
-const HouseContents = ({
-  is1F,
-  rooms_1f,
-  rooms_2f,
-  setRooms_1f,
-  setRooms_2f,
-}: Props) => {
-  const [targetRoom, setTargetRoom] = useState<Room | null>(null);
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const floorRooms = is1F ? rooms_1f : rooms_2f;
+const HouseContents = () => {
+  const { is1f } = useAppSelector((state) => state.is1f);
+  const { rooms1f } = useAppSelector((state) => state.rooms1f);
+  const { rooms2f } = useAppSelector((state) => state.rooms2f);
+  const {isModalOpen} = useAppSelector((state) => state.isModalOpen);
+  // is1Fの値によって表示する階を変更
+  const floorRooms = is1f ? rooms1f : rooms2f;
 
   return (
     <div className={styles.wrapper}>
       <main className={styles.main_wrapper}>
         {floorRooms!.map((room) => (
-          <HouseRoomCard
-            key={room.roomNumber}
-            room={room}
-            setIsModalOpen={setIsModalOpen}
-            setTargetRoom={setTargetRoom}
-          />
+          <HouseRoomCard key={room.roomNumber} room={room} />
         ))}
       </main>
-      {isModalOpen && (
-        <CleaningModal
-          targetRoom={targetRoom}
-          setIsModalOpen={setIsModalOpen}
-          is1F={is1F}
-          rooms_1f={rooms_1f}
-          rooms_2f={rooms_2f}
-          setRooms_1f={setRooms_1f}
-          setRooms_2f={setRooms_2f}
-        />
-      )}
+      {isModalOpen && <CleaningModal />}
     </div>
   );
 };

@@ -1,28 +1,20 @@
 "use client";
 
+import { useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { setRooms1f } from "@/lib/features/rooms_1f/rooms1fSlice";
+import { setRooms2f } from "@/lib/features/rooms_2f/rooms2fSlice";
+import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
+import { setIsModalClose } from "@/lib/features/modal/isModalOpen";
 import { Room } from "@/app/types/types";
 import styles from "./CleaningModal.module.css";
-import { useState } from "react";
 
-interface Props {
-  is1F: boolean;
-  rooms_1f: Room[] | null;
-  rooms_2f: Room[] | null;
-  targetRoom: Room | null;
-  setRooms_1f: React.Dispatch<React.SetStateAction<Room[] | null>>;
-  setRooms_2f: React.Dispatch<React.SetStateAction<Room[] | null>>;
-  setIsModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const CleaningModal = ({
-  is1F,
-  rooms_1f,
-  rooms_2f,
-  targetRoom,
-  setRooms_1f,
-  setRooms_2f,
-  setIsModalOpen,
-}: Props) => {
+const CleaningModal = () => {
+  const dispatch = useAppDispatch();
+  const { is1f } = useAppSelector((state) => state.is1f);
+  const { rooms1f } = useAppSelector((state) => state.rooms1f);
+  const { rooms2f } = useAppSelector((state) => state.rooms2f);
+  const { targetRoom } = useAppSelector((state) => state.targetRoom);
   const [isWaitingCheck, setIsWaitingCheck] = useState<boolean>(
     targetRoom!.isWaitingCheck
   );
@@ -31,26 +23,32 @@ const CleaningModal = ({
   );
 
   const newRoom: Room = {
-    ...targetRoom!,
-    isWaitingCheck: isWaitingCheck,
+    roomNumber: targetRoom.roomNumber,
+    roomType: targetRoom.roomType,
+    cleaningType: targetRoom.cleaningType,
+    stayCleaningType: targetRoom.stayCleaningType,
+    isKeyBack: targetRoom.isKeyBack,
+    nowBeds: targetRoom.nowBeds,
+    newBeds: targetRoom.newBeds,
+    adult: targetRoom.adult,
+    inf: targetRoom.inf,
+    kidInf: targetRoom.kidInf,
     isCleaningComplete: isCleaningComplete,
+    memo: targetRoom.memo,
+    isWaitingCheck: isWaitingCheck,
   };
 
-  const floorRooms = is1F ? rooms_1f : rooms_2f;
-  const setFloorRooms = is1F ? setRooms_1f : setRooms_2f;
-
-  const createNewRooms = () => {
-    const _noRemakeRooms = floorRooms!.filter((room) => {
-      return room!.roomNumber !== newRoom.roomNumber;
-    });
-    const _newRooms = [..._noRemakeRooms, newRoom];
-    return _newRooms.sort((a, b) => a.roomNumber - b.roomNumber);
+  const setNewRoom = () => {
+    const setFloorRooms = is1f ? setRooms1f : setRooms2f;
+    const rooms = is1f ? rooms1f : rooms2f;
+    dispatch(setFloorRooms({ newRoom, rooms }));
+    dispatch(setTargetRoom({}));
+    dispatch(setIsModalClose());
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFloorRooms(createNewRooms());
-    setIsModalOpen(false);
+    setNewRoom();
   };
 
   return (
@@ -119,7 +117,9 @@ const CleaningModal = ({
           </div>
           <div className={styles.button_container}>
             <button type="submit">送信</button>
-            <button onClick={() => setIsModalOpen(false)}>キャンセル</button>
+            <button onClick={() => dispatch(setIsModalClose())}>
+              キャンセル
+            </button>
           </div>
         </form>
       </div>
