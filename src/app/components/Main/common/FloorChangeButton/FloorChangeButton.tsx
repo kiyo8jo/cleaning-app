@@ -1,22 +1,23 @@
+"use client";
+
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { setIs1fFalse, setIs1fTrue } from "@/lib/features/is1f/is1fSlice";
 import styles from "./FloorChangeButton.module.css";
 
-interface Props {
-  is1F: boolean;
-  setIs1F: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const FloorChangeButton = ({ is1F, setIs1F }: Props) => {
+const FloorChangeButton = () => {
+  const dispatch = useAppDispatch();
+  const { is1f } = useAppSelector((state) => state.is1f);
   return (
     <div className={styles.wrapper}>
       <div
-        className={`${styles.floor} ${is1F && styles.set}`}
-        onClick={() => setIs1F(true)}
+        className={`${styles.floor} ${is1f && styles.set}`}
+        onClick={() => dispatch(setIs1fTrue())}
       >
         1F
       </div>
       <div
-        className={`${styles.floor} ${!is1F && styles.set}`}
-        onClick={() => setIs1F(false)}
+        className={`${styles.floor} ${!is1f && styles.set}`}
+        onClick={() => dispatch(setIs1fFalse())}
       >
         2F
       </div>

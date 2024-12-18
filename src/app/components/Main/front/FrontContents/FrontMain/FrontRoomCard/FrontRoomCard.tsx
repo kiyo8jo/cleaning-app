@@ -1,19 +1,26 @@
+"use client";
+
 import RoomCard from "@/app/components/Main/common/RoomCard/RoomCard";
 import styles from "./FrontRoomCard.module.css";
 import { Room } from "@/app/types/types";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
+import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
 
 interface Props {
   room: Room;
-  setTargetRoom: React.Dispatch<React.SetStateAction<Room | null>>;
 }
 
-const FrontRoomCard = ({ room, setTargetRoom }: Props) => {
+const FrontRoomCard = ({ room }: Props) => {
+  const dispatch = useAppDispatch();
+  const { is1f } = useAppSelector((state) => state.is1f);
+  const { rooms1f } = useAppSelector((state) => state.rooms1f);
+  const { rooms2f } = useAppSelector((state) => state.rooms2f);
   return (
     <div
       className={`${styles.wrapper} ${
-        room.stayCleaningType === "NORMAL" ? styles[room.stayCleaningType] : ""
+        room.stayCleaningType === "NORMAL" && styles[room.stayCleaningType]
       }`}
-      onClick={() => setTargetRoom(room)}
+      onClick={() => dispatch(setTargetRoom({ room, is1f, rooms1f, rooms2f }))}
     >
       <RoomCard room={room} />
     </div>

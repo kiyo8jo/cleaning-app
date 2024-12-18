@@ -1,6 +1,6 @@
 import { FaCheckCircle, FaKey, FaStopCircle } from "react-icons/fa";
-import styles from "./RoomCard.module.css";
 import { Room } from "@/app/types/types";
+import styles from "./RoomCard.module.css";
 
 interface Props {
   room: Room;
