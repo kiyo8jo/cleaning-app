@@ -1,8 +1,19 @@
-import { testRooms_2f } from "@/app/testRooms";
+import { getRooms_2fAPI } from "@/app/api/room/getRooms";
 import { Room } from "@/app/types/types";
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const initialState = { rooms2f: testRooms_2f };
+export const getRooms_2f = createAsyncThunk("getRooms/2f", getRooms_2fAPI);
+
+
+interface RoomsState {
+  rooms2f: Room[];
+  loading: "idle" | "pending" | "succeeded" | "failed";
+}
+
+const initialState = {
+  rooms2f: [],
+  loading: "idle",
+} satisfies RoomsState as RoomsState;
 
 const rooms2fSlice = createSlice({
   name: "rooms2f",
@@ -28,6 +39,11 @@ const rooms2fSlice = createSlice({
       );
       state.rooms2f = sortedNewRooms;
     },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(getRooms_2f.fulfilled, (state, action) => {
+      state.rooms2f = action.payload;
+    });
   },
 });
 

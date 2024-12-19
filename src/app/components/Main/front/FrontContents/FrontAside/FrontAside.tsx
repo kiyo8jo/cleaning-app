@@ -10,7 +10,7 @@ const FrontAside = () => {
   // targetRoomが{}の場合、FrontNoTargetAsideコンポーネントを表示
   if (Object.keys(targetRoom).length === 0) return <FrontNoTargetAside />;
 
-  // targetRoomが{}FrontExistTargetAsideコンポーネントを表示
+  // targetRoomが{}以外の場合FrontExistTargetAsideコンポーネントを表示
   return <FrontExistTargetAside />;
 };
 

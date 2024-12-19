@@ -11,13 +11,14 @@ import {
   stayCleaningTypeOptions,
 } from "./options";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { setRooms1f } from "@/lib/features/rooms_1f/rooms1fSlice";
+import { postRooms_1f, setRooms1f } from "@/lib/features/rooms_1f/rooms1fSlice";
 import { setRooms2f } from "@/lib/features/rooms_2f/rooms2fSlice";
 import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
 import { Room } from "@/app/types/types";
 import styles from "../FrontAside.module.css";
 
 const FrontExistTargetAside = () => {
+  // toolkit
   const dispatch = useAppDispatch();
   const { is1f } = useAppSelector((state) => state.is1f);
   const { rooms1f } = useAppSelector((state) => state.rooms1f);
@@ -78,10 +79,11 @@ const FrontExistTargetAside = () => {
       return;
     }
 
-    
     const setFloorRooms = is1f ? setRooms1f : setRooms2f;
     const rooms = is1f ? rooms1f : rooms2f;
-    dispatch(setFloorRooms({ newRoom, rooms }));
+    // ここ
+    // dispatch(setFloorRooms({ newRoom, rooms }));
+    dispatch(postRooms_1f({ newRoom }));
     dispatch(setTargetRoom({}));
   };
 
