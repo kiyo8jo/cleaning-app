@@ -1,6 +1,7 @@
-import { Room } from "@/app/types/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { Room } from "@/app/types/types";
 
+// 2階の部屋取得
 export const getRooms_2f = createAsyncThunk("getRooms/2f", async () => {
   const res = await fetch("http://localhost:3000/api/room/2f", {
     cache: "no-store",
@@ -9,11 +10,13 @@ export const getRooms_2f = createAsyncThunk("getRooms/2f", async () => {
   return data.rooms_2f;
 });
 
+// 2階の部屋編集
 export const editRoom_2f = createAsyncThunk(
   "editRoom_2f",
   async (payload: { newRoom: Room }) => {
     const { newRoom } = payload;
 
+    // バリデーション
     if (
       newRoom.cleaningType === "STAY" &&
       newRoom.stayCleaningType === "NOT-SELECT"
@@ -29,6 +32,7 @@ export const editRoom_2f = createAsyncThunk(
       return;
     }
 
+    // stayCleaningTypeの初期化
     newRoom.stayCleaningType =
       newRoom.cleaningType === "STAY" ? newRoom.stayCleaningType : "NOT-SELECT";
 
@@ -46,6 +50,7 @@ export const editRoom_2f = createAsyncThunk(
       memo,
     } = newRoom;
 
+    // 2階の部屋編集用APIをたたく
     const res = await fetch(`http://localhost:3000/api/room/2f/${newRoom.id}`, {
       method: "PUT",
       headers: {
@@ -82,26 +87,7 @@ const initialState = {
 const rooms2fSlice = createSlice({
   name: "rooms2f",
   initialState,
-  reducers: {
-    setRooms2f: (state, actions) => {
-      const { rooms, newRoom }: { rooms: Room[]; newRoom: Room } =
-        actions.payload;
-      const _noRemakeRooms = rooms.filter((room) => {
-        return room.id !== newRoom.id;
-      });
-
-      const _getInitializedNewRoom = () => {
-        if (newRoom.cleaningType !== "STAY") {
-          return { ...newRoom, stayCleaningType: "NOT-SELECT" };
-        } else {
-          return newRoom;
-        }
-      };
-      const _newRooms = [..._noRemakeRooms, _getInitializedNewRoom()];
-      const sortedNewRooms = _newRooms.sort((a, b) => a.id - b.id);
-      state.rooms2f = sortedNewRooms;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getRooms_2f.fulfilled, (state, action) => {
       state.rooms2f = action.payload;
@@ -109,5 +95,4 @@ const rooms2fSlice = createSlice({
   },
 });
 
-export const { setRooms2f } = rooms2fSlice.actions;
 export default rooms2fSlice.reducer;

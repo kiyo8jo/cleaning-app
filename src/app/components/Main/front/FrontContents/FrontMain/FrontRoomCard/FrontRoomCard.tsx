@@ -1,10 +1,10 @@
 "use client";
 
-import RoomCard from "@/app/components/Main/common/RoomCard/RoomCard";
-import styles from "./FrontRoomCard.module.css";
-import { Room } from "@/app/types/types";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
+import { Room } from "@/app/types/types";
+import RoomCard from "@/app/components/Main/common/RoomCard/RoomCard";
+import styles from "./FrontRoomCard.module.css";
 
 interface Props {
   room: Room;

@@ -12,10 +12,10 @@ import {
 } from "./options";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
-import { Room } from "@/app/types/types";
-import styles from "../FrontAside.module.css";
 import { editRoom_1f } from "@/lib/features/rooms_1f/rooms1fSlice";
 import { editRoom_2f } from "@/lib/features/rooms_2f/rooms2fSlice";
+import { Room } from "@/app/types/types";
+import styles from "../FrontAside.module.css";
 
 const FrontExistTargetAside = () => {
   // toolkit

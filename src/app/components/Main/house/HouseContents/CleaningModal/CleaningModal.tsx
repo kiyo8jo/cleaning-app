@@ -12,8 +12,6 @@ import styles from "./CleaningModal.module.css";
 const CleaningModal = () => {
   const dispatch = useAppDispatch();
   const { is1f } = useAppSelector((state) => state.is1f);
-  // const { rooms1f } = useAppSelector((state) => state.rooms1f);
-  // const { rooms2f } = useAppSelector((state) => state.rooms2f);
   const { targetRoom } = useAppSelector((state) => state.targetRoom);
   const [isWaitingCheck, setIsWaitingCheck] = useState<boolean>(
     targetRoom!.isWaitingCheck
@@ -39,11 +37,6 @@ const CleaningModal = () => {
   };
 
   const setEditNewRoom = () => {
-    // const setFloorRooms = is1f ? setRooms1f : setRooms2f;
-    // const rooms = is1f ? rooms1f : rooms2f;
-    // dispatch(setFloorRooms({ newRoom }));
-    // dispatch(setTargetRoom({}));
-    // dispatch(setIsModalClose());
     const setEditFunction = is1f ? editRoom_1f : editRoom_2f;
 
     dispatch(setEditFunction({ newRoom }));
