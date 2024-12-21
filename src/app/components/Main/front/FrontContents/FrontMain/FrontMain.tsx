@@ -25,7 +25,7 @@ const FrontMain = () => {
   return (
     <main className={styles.main_wrapper}>
       {floorRooms!.map((room) => (
-        <FrontRoomCard key={room.roomNumber} room={room} />
+        <FrontRoomCard key={room.id} room={room} />
       ))}
     </main>
   );

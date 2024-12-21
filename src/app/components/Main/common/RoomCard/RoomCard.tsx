@@ -13,10 +13,10 @@ const RoomCard = ({ room }: Props) => {
         (room.stayCleaningType === "NORMAL" && styles[room.stayCleaningType]) ||
         (room.cleaningType && styles[room.cleaningType])
       }`}
-      key={room.roomNumber}
+      key={room.id}
     >
       <div className={styles.room_card_header}>
-        <div>{`${room.roomNumber}(${room.roomType})`}</div>
+        <div>{`${room.id}(${room.roomType})`}</div>
         <div>{room.cleaningType}</div>
       </div>
       <div className={styles.room_card_contents}>

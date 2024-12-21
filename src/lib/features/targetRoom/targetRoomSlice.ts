@@ -27,9 +27,7 @@ const targetRoomSlice = createSlice({
       } = actions.payload;
       const floor: Room[] = is1f ? rooms1f : rooms2f;
       const createTargetRoom = () => {
-        const _targetRoom = floor?.find(
-          (_room) => _room.roomNumber === room.roomNumber
-        );
+        const _targetRoom = floor?.find((_room) => _room.id === room.id);
         if (_targetRoom === undefined) return {};
         return _targetRoom;
       };

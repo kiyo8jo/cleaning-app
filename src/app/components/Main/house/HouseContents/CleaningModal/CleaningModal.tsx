@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { setRooms1f } from "@/lib/features/rooms_1f/rooms1fSlice";
-import { setRooms2f } from "@/lib/features/rooms_2f/rooms2fSlice";
+import { editRoom_1f } from "@/lib/features/rooms_1f/rooms1fSlice";
+import { editRoom_2f } from "@/lib/features/rooms_2f/rooms2fSlice";
 import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
 import { setIsModalClose } from "@/lib/features/modal/isModalOpen";
 import { Room } from "@/app/types/types";
@@ -12,8 +12,8 @@ import styles from "./CleaningModal.module.css";
 const CleaningModal = () => {
   const dispatch = useAppDispatch();
   const { is1f } = useAppSelector((state) => state.is1f);
-  const { rooms1f } = useAppSelector((state) => state.rooms1f);
-  const { rooms2f } = useAppSelector((state) => state.rooms2f);
+  // const { rooms1f } = useAppSelector((state) => state.rooms1f);
+  // const { rooms2f } = useAppSelector((state) => state.rooms2f);
   const { targetRoom } = useAppSelector((state) => state.targetRoom);
   const [isWaitingCheck, setIsWaitingCheck] = useState<boolean>(
     targetRoom!.isWaitingCheck
@@ -23,7 +23,7 @@ const CleaningModal = () => {
   );
 
   const newRoom: Room = {
-    roomNumber: targetRoom.roomNumber,
+    id: targetRoom.id,
     roomType: targetRoom.roomType,
     cleaningType: targetRoom.cleaningType,
     stayCleaningType: targetRoom.stayCleaningType,
@@ -38,25 +38,28 @@ const CleaningModal = () => {
     isWaitingCheck: isWaitingCheck,
   };
 
-  const setNewRoom = () => {
-    const setFloorRooms = is1f ? setRooms1f : setRooms2f;
-    const rooms = is1f ? rooms1f : rooms2f;
-    dispatch(setFloorRooms({ newRoom, rooms }));
+  const setEditNewRoom = () => {
+    // const setFloorRooms = is1f ? setRooms1f : setRooms2f;
+    // const rooms = is1f ? rooms1f : rooms2f;
+    // dispatch(setFloorRooms({ newRoom }));
+    // dispatch(setTargetRoom({}));
+    // dispatch(setIsModalClose());
+    const setEditFunction = is1f ? editRoom_1f : editRoom_2f;
+
+    dispatch(setEditFunction({ newRoom }));
     dispatch(setTargetRoom({}));
-    dispatch(setIsModalClose());
+    window.location.reload();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setNewRoom();
+    setEditNewRoom();
   };
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.modal_wrapper}>
-        <h2 className={styles.title}>{`${
-          targetRoom!.roomNumber
-        }の清掃状況`}</h2>
+        <h2 className={styles.title}>{`${targetRoom!.id}の清掃状況`}</h2>
         <h3 className={styles.cleaning_type}>{targetRoom!.cleaningType}</h3>
         <form onSubmit={handleSubmit}>
           {/* cleaning */}

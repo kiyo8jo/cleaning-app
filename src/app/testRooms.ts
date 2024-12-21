@@ -2,7 +2,7 @@ import { Room } from "./types/types";
 
 export const testRooms_1f: Room[] = [
   {
-    roomNumber: 221,
+    id: 221,
     roomType: "OTP",
     cleaningType: "OUT-IN",
 
@@ -21,7 +21,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: true,
   },
   {
-    roomNumber: 223,
+    id: 223,
     roomType: "OTP",
     cleaningType: "NONE",
 
@@ -39,7 +39,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: true,
   },
   {
-    roomNumber: 224,
+    id: 224,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -57,7 +57,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 225,
+    id: 225,
     roomType: "OTP",
     cleaningType: "IN",
 
@@ -75,7 +75,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 226,
+    id: 226,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -93,7 +93,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 227,
+    id: 227,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -111,7 +111,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 228,
+    id: 228,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -129,7 +129,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 229,
+    id: 229,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -147,7 +147,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 230,
+    id: 230,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -165,7 +165,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 231,
+    id: 231,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -183,7 +183,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 232,
+    id: 232,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -201,7 +201,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 233,
+    id: 233,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -219,7 +219,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 234,
+    id: 234,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -237,7 +237,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 236,
+    id: 236,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -255,7 +255,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 237,
+    id: 237,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -273,7 +273,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 238,
+    id: 238,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -291,7 +291,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 239,
+    id: 239,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -309,7 +309,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 240,
+    id: 240,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -327,7 +327,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 241,
+    id: 241,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -345,7 +345,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 242,
+    id: 242,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -363,7 +363,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 243,
+    id: 243,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -381,7 +381,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 244,
+    id: 244,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -399,7 +399,7 @@ export const testRooms_1f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 245,
+    id: 245,
     roomType: "MTP",
     cleaningType: "IN",
 
@@ -420,7 +420,7 @@ export const testRooms_1f: Room[] = [
 
 export const testRooms_2f: Room[] = [
   {
-    roomNumber: 301,
+    id: 301,
     roomType: "OTP",
     cleaningType: "OUT-IN",
 
@@ -439,7 +439,7 @@ export const testRooms_2f: Room[] = [
     isWaitingCheck: false,
   },
   {
-    roomNumber: 303,
+    id: 303,
     roomType: "OTP",
     cleaningType: "NONE",
 

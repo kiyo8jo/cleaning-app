@@ -11,18 +11,16 @@ import {
   stayCleaningTypeOptions,
 } from "./options";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
-import { postRooms_1f, setRooms1f } from "@/lib/features/rooms_1f/rooms1fSlice";
-import { setRooms2f } from "@/lib/features/rooms_2f/rooms2fSlice";
 import { setTargetRoom } from "@/lib/features/targetRoom/targetRoomSlice";
 import { Room } from "@/app/types/types";
 import styles from "../FrontAside.module.css";
+import { editRoom_1f } from "@/lib/features/rooms_1f/rooms1fSlice";
+import { editRoom_2f } from "@/lib/features/rooms_2f/rooms2fSlice";
 
 const FrontExistTargetAside = () => {
   // toolkit
   const dispatch = useAppDispatch();
   const { is1f } = useAppSelector((state) => state.is1f);
-  const { rooms1f } = useAppSelector((state) => state.rooms1f);
-  const { rooms2f } = useAppSelector((state) => state.rooms2f);
   const { targetRoom } = useAppSelector((state) => state.targetRoom);
 
   // state
@@ -47,7 +45,7 @@ const FrontExistTargetAside = () => {
 
   // formに入力された値で新しくroomを作る
   const newRoom: Room = {
-    roomNumber: targetRoom.roomNumber,
+    id: targetRoom.id,
     roomType: targetRoom.roomType,
     cleaningType: cleaningType,
     stayCleaningType: stayCleaningType,
@@ -63,38 +61,22 @@ const FrontExistTargetAside = () => {
   };
 
   //バリデーションを行い、それ以外の場合newRoomをセットする関数
-  const validateAndSetNewRoom = () => {
-    if (
-      newRoom.cleaningType === "STAY" &&
-      newRoom.stayCleaningType === "NOT-SELECT"
-    ) {
-      alert("stayCleaningTypeが選択されていません");
-      return;
-    }
-    if (
-      newRoom.cleaningType == "STAY" &&
-      newRoom.stayCleaningType == "NOT-SELECT"
-    ) {
-      alert("必要のないstayCleaningTypeが選択されています");
-      return;
-    }
+  const setEditNewRoom = () => {
+    const setEditFunction = is1f ? editRoom_1f : editRoom_2f;
 
-    const setFloorRooms = is1f ? setRooms1f : setRooms2f;
-    const rooms = is1f ? rooms1f : rooms2f;
-    // ここ
-    // dispatch(setFloorRooms({ newRoom, rooms }));
-    dispatch(postRooms_1f({ newRoom }));
+    dispatch(setEditFunction({ newRoom }));
     dispatch(setTargetRoom({}));
+    window.location.reload();
   };
 
   // submit時の処理
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    validateAndSetNewRoom();
+    setEditNewRoom();
   };
   return (
     <aside className={styles.aside_wrapper}>
-      <h2 className={styles.edit_title}>{`${targetRoom.roomNumber}の編集`}</h2>
+      <h2 className={styles.edit_title}>{`${targetRoom.id}の編集`}</h2>
       <form onSubmit={handleSubmit}>
         <div className={styles.edit_item_container}>
           {/* cleaningType */}
@@ -138,6 +120,7 @@ const FrontExistTargetAside = () => {
               {createObjOptions(objOptions)}
             </select>
           </div>
+
           {/* nowBeds */}
           <div className={styles.edit_item}>
             <label htmlFor="now_beds">nowBeds</label>
