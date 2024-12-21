@@ -38,8 +38,8 @@ const CleaningModal = () => {
 
   const setEditNewRoom = () => {
     const setEditFunction = is1f ? editRoom_1f : editRoom_2f;
-
     dispatch(setEditFunction({ newRoom }));
+    dispatch(setIsModalClose());
     dispatch(setTargetRoom({}));
     window.location.reload();
   };
@@ -113,9 +113,7 @@ const CleaningModal = () => {
           </div>
           <div className={styles.button_container}>
             <button type="submit">送信</button>
-            <button onClick={() => dispatch(setIsModalClose())}>
-              キャンセル
-            </button>
+            <button>キャンセル</button>
           </div>
         </form>
       </div>

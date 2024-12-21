@@ -76,12 +76,12 @@ export const editRoom_1f = createAsyncThunk(
 
 interface RoomsState {
   rooms1f: Room[];
-  loading: "idle" | "pending" | "succeeded" | "failed";
+  getRooms1fStatus: "idle" | "pending" | "succeeded" | "failed";
 }
 
 const initialState = {
   rooms1f: [],
-  loading: "idle",
+  getRooms1fStatus: "idle",
 } satisfies RoomsState as RoomsState;
 
 const rooms1fSlice = createSlice({
@@ -89,8 +89,18 @@ const rooms1fSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
+    // データ取得成功
     builder.addCase(getRooms_1f.fulfilled, (state, action) => {
       state.rooms1f = action.payload;
+      state.getRooms1fStatus = "succeeded";
+    });
+    // ロード中
+    builder.addCase(getRooms_1f.pending, (state) => {
+      state.getRooms1fStatus = "pending";
+    });
+    // データ取得失敗
+    builder.addCase(getRooms_1f.rejected, (state) => {
+      state.getRooms1fStatus = "failed";
     });
   },
 });

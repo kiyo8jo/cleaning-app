@@ -11,3 +11,10 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.get_data_status {
+  font-size: xx-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
