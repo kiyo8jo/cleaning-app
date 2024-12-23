@@ -12,12 +12,10 @@ export default function Home() {
           ハウス用画面
         </Link>
       </div>
-      <div>
-        <div className={styles.create_container}>
-          <Link href="/createTable" className={styles.link}>
-            作成用画面
-          </Link>
-        </div>
+      <div className={styles.create_container}>
+        <Link href="/createTable" className={styles.link}>
+          作成用画面
+        </Link>
       </div>
     </div>
   );
