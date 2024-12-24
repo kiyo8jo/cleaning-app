@@ -81,7 +81,8 @@
   transform: translateX(-50%);
 }
 
-.button_container > button {
+.button_container > button,
+.button_container > div {
   width: 100px;
   border: none;
   border-radius: 10px;
@@ -89,8 +90,12 @@
   cursor: pointer;
   transition: all 0.2s;
   font-weight: bold;
+  background-color: rgb(211, 211, 211);
+  font-size: 13px;
+  text-align: center;
 }
 
-.button_container > button:hover {
+.button_container > button:hover,
+.button_container > div:hover {
   scale: 1.1;
 }

@@ -53,15 +53,20 @@
   gap: 10px;
 }
 
-.button_container > button {
+.button_container > button,
+.button_container > div {
   width: 100px;
   transition: all 0.2s;
   border-radius: 10px;
   border: none;
   background-color: #f0dbad;
   cursor: pointer;
+  font-size: small;
+  text-align: center;
+  font-weight: bold;
 }
 
-.button_container > button:hover {
+.button_container > button:hover,
+.button_container > div:hover {
   scale: 1.1;
 }

@@ -6,7 +6,7 @@ import FrontExistTargetAside from "./FrontExistTargetAside/FrontExistTargetAside
 
 const FrontAside = () => {
   const { targetRoom } = useAppSelector((state) => state.targetRoom);
-
+console.log(targetRoom)
   // targetRoomが{}の場合、FrontNoTargetAsideコンポーネントを表示
   if (Object.keys(targetRoom).length === 0) return <FrontNoTargetAside />;
 

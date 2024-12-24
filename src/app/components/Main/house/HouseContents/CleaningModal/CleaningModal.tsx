@@ -113,7 +113,14 @@ const CleaningModal = () => {
           </div>
           <div className={styles.button_container}>
             <button type="submit">送信</button>
-            <button>キャンセル</button>
+            <div
+              onClick={() => {
+                dispatch(setTargetRoom({}));
+                dispatch(setIsModalClose());
+              }}
+            >
+              <p>キャンセル</p>
+            </div>
           </div>
         </form>
       </div>

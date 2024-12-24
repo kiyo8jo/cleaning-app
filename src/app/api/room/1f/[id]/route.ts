@@ -33,6 +33,8 @@ export const PUT = async (req: Request) => {
 
     await connectDb();
 
+    console.log(cleaningType)
+
     const editedRoom = await prisma.rooms1f.update({
       data: {
         cleaningType,

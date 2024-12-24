@@ -206,7 +206,9 @@ const FrontExistTargetAside = () => {
         </div>
         <div className={styles.button_container}>
           <button type="submit">変更</button>
-          <button>キャンセル</button>
+          <div onClick={() => dispatch(setTargetRoom({}))}>
+            <p>キャンセル</p>
+          </div>
         </div>
       </form>
     </aside>
